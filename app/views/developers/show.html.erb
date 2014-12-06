@@ -1,0 +1,18 @@
+<%= image_tag @developer.image.url(:medium) %>
+
+<h1><%= @developer.developer%></h1>
+
+<p>
+  <%= label_tag :description %><%= @developer.description %>
+</p>
+
+
+<p>
+  <%= label_tag :hidden %><%= @developer.hidden %>
+</p>
+
+<%= link_to 'Edit', edit_developer_url(@developer) %> |
+<%= link_to 'Delete', developer_url(@developer), :method => :delete, :confirm => "Are you sure?" %>
+
+<p><%= link_to 'Back', developers_url %></p>
+

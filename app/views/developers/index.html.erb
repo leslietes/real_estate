@@ -1,5 +1,6 @@
 <table>
   <thead>
+    <th>Photo</th>
     <th>Developer</th>
     <th>Permalink</th>
     <th>Description</th>
@@ -9,6 +10,7 @@
   <tbody>
     <% @developers.each do |d| %>
       <tr>
+        <td><%= image_tag(d.image.url(:medium)) %></td>
         <td><%= d.developer %></td>
         <td><%= d.permalink %></td>
         <td><%= d.description %></td>
