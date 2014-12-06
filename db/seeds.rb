@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Location.create([{ area: 'I.T. Park' },{ area: 'Lahug' },{ area: 'Capitol' }])
+
+Developer.create([{ developer: 'Ayala Land',    permalink: 'ayala-land'   }])
+Developer.create([{ developer: 'Primary Homes', permalink: 'primary-homes'}])

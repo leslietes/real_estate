@@ -1,0 +1,25 @@
+<h1><%= @property.name %></h1>
+	
+<% if @property.has_tagline? %>
+  <p id="tagline">Own a unit for as low as <%= number_to_currency(@property.as_low_as, :unit => "P ", :precision => 0) %><%= @property.as_low_as_label %></p>
+<% end %>
+	
+<br/>
+		
+<div class="disclaimer">
+  <p>* Denotes lowest available price</p>
+</div>
+
+<br/>
+
+<% if @property.has_payment_terms? %>
+  <h3>Payment Terms</h3>
+  <%= @property.payment_terms %>
+<% end %>
+		
+<br/>
+		
+<%= render :partial => "#{@partial}" %>
+		
+<br/>
+		

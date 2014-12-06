@@ -1,0 +1,30 @@
+<h1>Properties</h1>
+
+<table>
+  <thead>
+    <th>Developer</th>  
+    <th>Project</th>
+    <th>Permalink</th>
+    <th>Location</th>
+    <th>Actions</th>
+  </thead>
+  <tbody>
+    <% @properties.each do |p| %>
+      <tr>
+        <td><%= p.developer_name %></td>
+        <td><%= p.name %></td>
+        <td><%= p.permalink %></td>
+        <td><%= p.location %></td>
+        <td>
+          <%= link_to 'Show', p %>
+          <%= link_to 'Edit', edit_property_url(p) %>
+          <%= link_to 'Delete', property_url(p), :method => :destroy, :confirm => "Are you sure?" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br/>
+
+<%= link_to 'Add', new_property_url %>

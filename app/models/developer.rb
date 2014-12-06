@@ -5,6 +5,8 @@ class Developer < ActiveRecord::Base
   has_attached_file :image, :styles => { :medium => "155x165>"},
                     :url => "/:class/:attachment/:id/:style_:basename.:extension"
 
+  has_many :properties
+
   validates_presence_of   :developer, :permalink
   validates_uniqueness_of :permalink
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
