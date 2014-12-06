@@ -1,0 +1,28 @@
+<table>
+  <thead>
+    <th>Developer</th>
+    <th>Permalink</th>
+    <th>Description</th>
+    <th>Hidden</th>
+    <th>Actions</th>
+  </thead>
+  <tbody>
+    <% @developers.each do |d| %>
+      <tr>
+        <td><%= d.developer %></td>
+        <td><%= d.permalink %></td>
+        <td><%= d.description %></td>
+        <td><%= d.hidden %></td>
+        <td>
+          <%= link_to 'Show', d %>
+          <%= link_to 'Edit', edit_developer_url(d) %>
+          <%= link_to 'Delete', d, :method => :delete, :confirm => "Are you sure?" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br/>
+
+<%= link_to 'Add', new_developer_url %>
