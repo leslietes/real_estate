@@ -1,3 +1,5 @@
 class Location < ActiveRecord::Base
-  # attr_accessible :title, :body
+  attr_accessible :area
+
+  validates_uniqueness_of :area
 end

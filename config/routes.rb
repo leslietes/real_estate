@@ -9,6 +9,9 @@ RealEstate::Application.routes.draw do
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
+  match '/admin'                       => 'admin#settings',        :as => :settings
+  match '/admin/settings/add_location' => 'admin#add_location',    :as => :add_location
+  match '/admin/location/remove/:id'   => 'admin#remove_location', :as => :remove_location
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
