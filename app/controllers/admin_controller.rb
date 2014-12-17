@@ -3,6 +3,8 @@ class AdminController < ApplicationController
   def settings
     @locations= Location.order(:area)
     @setting  = Setting.first
+    @perspectives = Perspective.all
+    @perspective  = Perspective.new
   end
 
   def edit_settings
@@ -33,6 +35,27 @@ class AdminController < ApplicationController
         flash[:notice] = "Successfully deleted location"
       else
         flash[:error] = "Unable to delete location"
+      end
+    end
+    redirect_to settings_url
+  end
+
+  def add_perspective
+    perspective = Perspective.new(params[:perspective])
+    if perspective.save
+      flash[:notice] = "Successfully added building perspective"
+    else
+      flash[:error] = "Unable to add building perspective"
+    end
+    redirect_to settings_url
+  end
+
+  def remove_perspective
+    if Perspective.exists?(params[:id])
+      if Perspective.delete(params[:id])
+        flash[:notice] = "Successfully deleted"
+      else
+        flash[:error] = "Unable to delete deleted"
       end
     end
     redirect_to settings_url

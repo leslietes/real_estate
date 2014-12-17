@@ -13,6 +13,8 @@ RealEstate::Application.routes.draw do
   match '/admin/settings/add_location' => 'admin#add_location',    :as => :add_location
   match '/admin/location/remove/:id'   => 'admin#remove_location', :as => :remove_location
   match '/admin/settings/edit'	       => 'admin#edit_settings',   :as => :edit_settings
+  match '/admin/perspective/add'       => 'admin#add_perspective', :as => :add_perspective
+  match '/admin/perspective/remove/:id'=> 'admin#remove_perspective', :as => :remove_perspective
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
@@ -54,7 +56,7 @@ RealEstate::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 
