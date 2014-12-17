@@ -1,30 +1,20 @@
-<h1>Properties</h1>
+<% content_for :head do %>
+<%= stylesheet_link_tag 'demo_table' %>
+<%= javascript_include_tag 'jquery-1.4.2.min.js','jquery.dataTables.min' %>
+<% end %>
 
-<table>
-  <thead>
-    <th>Developer</th>  
-    <th>Project</th>
-    <th>Permalink</th>
-    <th>Location</th>
-    <th>Actions</th>
-  </thead>
-  <tbody>
-    <% @properties.each do |p| %>
-      <tr>
-        <td><%= p.developer_name %></td>
-        <td><%= p.name %></td>
-        <td><%= p.permalink %></td>
-        <td><%= p.location %></td>
-        <td>
-          <%= link_to 'Show', p %>
-          <%= link_to 'Edit', edit_property_url(p) %>
-          <%= link_to 'Delete', property_url(p), :method => :destroy, :confirm => "Are you sure?" %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="blue">
+<div class="main_content">
+	<h1>Properties</h1>	
+		
+	<%= render :partial => 'properties/datatable' %>
 
-<br/>
-
-<%= link_to 'Add', new_property_url %>
+	<%# if logged_in? %>
+		<div class="links">
+			<%= link_to 'New', new_property_url %>
+		</div>
+	<%# end %>
+	<div class="clear"></div>
+	<br>
+</div>
+</div>
