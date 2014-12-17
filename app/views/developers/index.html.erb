@@ -1,30 +1,41 @@
-<table>
-  <thead>
-    <th>Photo</th>
-    <th>Developer</th>
-    <th>Permalink</th>
-    <th>Description</th>
-    <th>Hidden</th>
-    <th>Actions</th>
-  </thead>
-  <tbody>
-    <% @developers.each do |d| %>
-      <tr>
-        <td><%= image_tag(d.image.url(:medium)) %></td>
-        <td><%= d.developer %></td>
-        <td><%= d.permalink %></td>
-        <td><%= d.description %></td>
-        <td><%= d.hidden %></td>
-        <td>
-          <%= link_to 'Show', d %>
-          <%= link_to 'Edit', edit_developer_url(d) %>
-          <%= link_to 'Delete', d, :method => :delete, :confirm => "Are you sure?" %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br/>
-
-<%= link_to 'Add', new_developer_url %>
+<div class="blue">
+<div class="main_content developers">
+	<h1>Developers</h1>
+	
+	<div class="left">
+		<% @developers.each do |d| %>
+		<ul>
+			<li class="developer">
+				<%= image_tag(d.image.url)	%>	
+				<div class="projects">
+					<h3>Projects</h3>
+					<% d.show_all_projects.each do |property| %>
+					<%= link_to property.name, property_url(property) %><br/>
+					<% end %>
+				</div>
+				<br/><br/>
+				<%# if logged_in? %>
+				<div class="links">
+				<%= link_to 'Edit', edit_developer_url(d) %>&nbsp;|&nbsp;<%= link_to 'Delete', developer_url(d), :method => :delete, :confirm => "Are you sure?" %>
+				</div>	
+				<%# end %>
+				<div class="clear"></div>
+			</li>
+		</ul>				
+		<% end %>
+			
+		<%# if logged_in? %>
+			<div class="links">
+				<%= link_to 'New', new_developer_url %>
+			</div>
+		<%# end %>
+	</div>
+	
+	<div class="right">
+		<%#= render :partial => 'shared/featured_news' %><br/>
+		<%#= render :partial => 'shared/search_form' %>
+	</div>
+		
+</div>
+</div>
+<br>
