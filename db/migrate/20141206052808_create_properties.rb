@@ -61,6 +61,13 @@ class CreateProperties < ActiveRecord::Migration
       t.integer :no_of_bldgs,  :default => 0
       t.integer :no_of_units,  :default => 0
 
+      t.string  :studio_layout_caption
+      t.string  :one_bedroom_layout_caption
+      t.string  :two_bedroom_layout_caption
+      t.string  :three_bedroom_layout_caption
+      t.string  :penthouse_layout_caption
+      t.string  :loft_layout_caption
+
       t.timestamps
     end
   end

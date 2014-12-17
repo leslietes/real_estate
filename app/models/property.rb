@@ -8,13 +8,54 @@ class Property < ActiveRecord::Base
   attr_accessible :amenities, :features, :unit_specifications, :payment_terms, :as_low_as, :as_low_as_label
   attr_accessible :reservation_fee, :property_type, :featured, :hidden
   attr_accessible :latitude, :longitude, :no_of_floors, :no_of_bldgs, :no_of_units, :sold_out, :preselling
+  attr_accessible :photo, :logo, :location_map, :studio_layout, :one_bedroom_layout, :two_bedroom_layout, :three_bedroom_layout, :penthouse_layout, :loft_layout
+  attr_accessible :studio_layout_caption, :one_bedroom_layout_caption, :two_bedroom_layout_caption, :three_bedroom_layout_caption, :penthouse_layout_caption, :loft_layout_caption
+
+  has_attached_file :photo, :styles => { :medium => "335x525>", :thumb => "85x122>", :small => "120x145>" },
+                    :url => "/:class/:attachment/:id/:style_:basename.:extension"
+
+  has_attached_file :logo, :styles => { :medium => "335x525>" },
+                    :url => "/:class/:attachment/:id/:style_:basename.:extension"
+
+  has_attached_file :location_map, :styles => { :medium => "335x525>" },
+                    :url => "/:class/:attachment/:id/:style_:basename.:extension"
+
+  has_attached_file :studio_layout, :styles => { :medium => "335x525>" },
+                    :url => "/:class/:attachment/:id/:style_:basename.:extension"
+
+  has_attached_file :one_bedroom_layout, :styles => { :medium => "335x525>" },
+                    :url => "/:class/:attachment/:id/:style_:basename.:extension"
+
+  has_attached_file :two_bedroom_layout, :styles => { :medium => "335x525>" },
+                    :url => "/:class/:attachment/:id/:style_:basename.:extension"
+
+  has_attached_file :three_bedroom_layout, :styles => { :medium => "335x525>" },
+                    :url => "/:class/:attachment/:id/:style_:basename.:extension"
+
+  has_attached_file :penthouse_layout, :styles => { :medium => "335x525>" },
+                    :url => "/:class/:attachment/:id/:style_:basename.:extension"
+ 
+  has_attached_file :loft_layout, :styles => { :medium => "335x525>" },
+                    :url => "/:class/:attachment/:id/:style_:basename.:extension"
 
   belongs_to :developer
   
-  validates_presence_of   :developer_id, :name, :permalink
-  validates_uniqueness_of :permalink
+  validates :developer_id, :presence => true
+  validates :name,         :presence => true
+  validates :permalink,    :presence => true, :uniqueness => true
+  
+  validates_attachment_content_type :photo,                :content_type => /\Aimage\/.*\Z/
+  validates_attachment_content_type :logo,                 :content_type => /\Aimage\/.*\Z/
+  validates_attachment_content_type :location_map,         :content_type => /\Aimage\/.*\Z/
+  validates_attachment_content_type :studio_layout,        :content_type => /\Aimage\/.*\Z/
+  validates_attachment_content_type :one_bedroom_layout,   :content_type => /\Aimage\/.*\Z/
+  validates_attachment_content_type :two_bedroom_layout,   :content_type => /\Aimage\/.*\Z/
+  validates_attachment_content_type :three_bedroom_layout, :content_type => /\Aimage\/.*\Z/
+  validates_attachment_content_type :penthouse_layout,     :content_type => /\Aimage\/.*\Z/
+  validates_attachment_content_type :loft_layout,          :content_type => /\Aimage\/.*\Z/
 
- 
+
+
   def self.property_types
     [[''],['Condominium'],['Condotel']]
   end
@@ -24,7 +65,7 @@ class Property < ActiveRecord::Base
                   studio, one_bedroom, two_bedroom, three_bedroom, penthouse, loft, 
                   studio_size, one_bedroom_size, two_bedroom_size, three_bedroom_size, penthouse_size, loft_size, 
                   studio_price, one_bedroom_price, two_bedroom_price, three_bedroom_price, penthouse_price, loft_price,
-                  studio_monthly, one_bedroom_monthly, two_bedroom_monthly, three_bedroom_monthly, penthouse_monthly, loft_monthly, hidden, featured, sold_out, preselling, latitude, longitude").order("name ASC").includes (:developer)
+                  studio_monthly, one_bedroom_monthly, two_bedroom_monthly, three_bedroom_monthly, penthouse_monthly, loft_monthly, hidden, featured, sold_out,   preselling, latitude, longitude").order("name ASC").includes(:developer)
   end
 
   def self.show_all_visible
@@ -36,7 +77,7 @@ class Property < ActiveRecord::Base
   end
 
   def developer_name
-  	developer.blank? ? "" : developer.developer
+    developer.blank? ? "" : developer.developer
   end
 
   def all_unit_info

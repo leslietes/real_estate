@@ -1,3 +1,5 @@
+<div class="one">
+
 <p>
   <%= f.label :name %><%= f.text_field :name %> 
 </p>
@@ -7,13 +9,25 @@
 </p>	
 	
 <p>
+  <%= f.label :logo %><%= f.file_field :logo %>
+</p>
+
+<p>
+  <%= f.label :photo %><%= f.file_field :photo %>
+</p>	
+
+<p>
+  <%= f.label :location_map %><%= f.file_field :location_map %>
+</p>	
+
+<p>
   <%= f.label :developer %><%= select("property","developer_id", @developers, {:include_blank => true}) %>
 </p>
-	
+
 <p>
   <%= f.label :location %><%= select("property","location", @locations, {:include_blank => true}) %>
 </p>
-	
+
 <p>
   <%= f.label :no_of_floors %><%= f.text_field :no_of_floors %>
 </p>
@@ -25,108 +39,137 @@
 <p>
   <%= f.label :no_of_units %><%= f.text_field :no_of_units %>
 </p>
-	
-	<p>
-	  <%= f.label :address %><%= f.text_area :address %>
-	</p>
-	
-	<p>
-	  <%= f.label :latitude %><%= f.text_field :latitude %>
-	</p>
-	
-    <p>
-	  <%= f.label :longitude %><%= f.text_field :longitude %>
-	</p>
 
-	<p>
-		<%= f.label :completed %><%= f.check_box :completed %>
-	</p>		
-	
-	<p>
-		<%= f.label :target_completion_date %><%= f.text_field :target_completion_date %>
-	</p>	
-	
-	<p>
-	  <%= f.label :description %><%= f.text_area :description %>
-	</p>
-	
-	<p>
-		<%= f.label :amenities %><%= f.text_area :amenities %>
-	</p>
-	
-	<p>
-		<%= f.label :unit_specifications %><%= f.text_area :unit_specifications %>
-	</p>
-	
-	<p>
-		<%= f.label :type %><%= select("property", "property_type", @property_types) %>
-	</p>
+<p>
+  <%= f.label :address %><%= f.text_area :address %>
+</p>
 
-	<p>
-		<%= f.label :featured %><%= f.check_box :featured %>
-	</p>
+<p>
+  <%= f.label :latitude %><%= f.text_field :latitude %>
+</p>
+
+<p>
+  <%= f.label :longitude %><%= f.text_field :longitude %>
+</p>
+
+<p>
+  <%= f.label :completed %><%= f.check_box :completed %>
+</p>		
+
+<p>
+  <%= f.label :target_completion_date %><%= f.text_field :target_completion_date %>
+</p>	
 	
-	<p>
-		<%= f.label :hidden %><%= f.check_box :hidden %>
-	</p>
-	
-	<p>
-		<%= f.label :sold_out %><%= f.check_box :sold_out %>
-	</p>
-	<p>
-		<%= f.label :preselling %><%= f.check_box :preselling%>
-	</p>	
+<p>
+  <%= f.label :description %><%= f.text_area :description %>
+</p>
+
+<p>
+  <%= f.label :amenities %><%= f.text_area :amenities %>
+</p>
+
+<p>
+  <%= f.label :unit_specifications %><%= f.text_area :unit_specifications %>
+</p>
+
+<p>
+  <%= f.label :type %><%= select("property", "property_type", @property_types) %>
+</p>
+
+<p>
+  <%= f.label :featured %><%= f.check_box :featured %>
+</p>
+
+<p>
+  <%= f.label :hidden %><%= f.check_box :hidden %>
+</p>
+
+<p>
+  <%= f.label :sold_out %><%= f.check_box :sold_out %>
+</p>
+<p>
+  <%= f.label :preselling %><%= f.check_box :preselling%>
+</p>	
 
 	
 <p>
-	<%= f.label :unit_types %><br>
-	<%= f.check_box :studio %> Studio<br>
-	<%= f.check_box :one_bedroom %> 1 Bedroom<br>
-	<%= f.check_box :two_bedroom %> 2 Bedroom<br>
-	<%= f.check_box :three_bedroom %> 3 Bedroom<br>
-	<%= f.check_box :penthouse%> Penthouse
+  <%= f.label :unit_types %><br>
+  <%= f.check_box :studio %> Studio<br>
+  <%= f.check_box :one_bedroom %> 1 Bedroom<br>
+  <%= f.check_box :two_bedroom %> 2 Bedroom<br>
+  <%= f.check_box :three_bedroom %> 3 Bedroom<br>
+  <%= f.check_box :penthouse%> Penthouse
 </p>
 	
+
 <p>
-	<%= label_tag :sizes %><br>
-	Studio: <%= f.text_field :studio_size %><br>
-	1 Bedroom: <%= f.text_field :one_bedroom_size %><br>
-	2 Bedroom: <%= f.text_field :two_bedroom_size %><br>
-	3 Bedroom: <%= f.text_field :three_bedroom_size %><br>
-	Penthouse: <%= f.text_field :penthouse_size %>
+  <%= label_tag :sizes %><br>
+  Studio: <%= f.text_field :studio_size %><br>
+  1 Bedroom: <%= f.text_field :one_bedroom_size %><br>
+  2 Bedroom: <%= f.text_field :two_bedroom_size %><br>
+  3 Bedroom: <%= f.text_field :three_bedroom_size %><br>
+  Penthouse: <%= f.text_field :penthouse_size %>
 </p>
-	
+
+<p></p>
+
+
 <p>
 <%= label_tag :prices %><br>
-Studio: <%= f.text_field :studio_price %><br>
-1 Bedroom: <%= f.text_field :one_bedroom_price %><br>
-2 Bedroom: <%= f.text_field :two_bedroom_price %><br>
-3 Bedroom: <%= f.text_field :three_bedroom_price %><br>
-Penthouse: <%= f.text_field :penthouse_price %>
+  Studio: <%= f.text_field :studio_price %><br>
+  1 Bedroom: <%= f.text_field :one_bedroom_price %><br>
+  2 Bedroom: <%= f.text_field :two_bedroom_price %><br>
+  3 Bedroom: <%= f.text_field :three_bedroom_price %><br>
+  Penthouse: <%= f.text_field :penthouse_price %>
 </p>
 	
+<p></p>
+	
 <p>
-<%= label_tag :monthly %><br>
-Studio:    <%= f.text_field :studio_monthly %><br>
-1 Bedroom: <%= f.text_field :one_bedroom_monthly %><br>
-2 Bedroom: <%= f.text_field :two_bedroom_monthly %><br>
-3 Bedroom: <%= f.text_field :three_bedroom_monthly %><br>
-Penthouse: <%= f.text_field :penthouse_monthly %>
+  <%= label_tag :monthly %><br>
+  Studio:    <%= f.text_field :studio_monthly %><br>
+  1 Bedroom: <%= f.text_field :one_bedroom_monthly %><br>
+  2 Bedroom: <%= f.text_field :two_bedroom_monthly %><br>
+  3 Bedroom: <%= f.text_field :three_bedroom_monthly %><br>
+  Penthouse: <%= f.text_field :penthouse_monthly %>
 </p>
 
+<p></p>
+
+<p>
+  <%= label_tag :floor_plans%><br>
+  Studio: <%= f.file_field :studio_layout %><br>
+  1 Bedroom: <%= f.file_field :one_bedroom_layout %><br>
+  2 Bedroom: <%= f.file_field :two_bedroom_layout %><br>
+  3 Bedroom: <%= f.file_field :three_bedroom_layout %><br>
+  Penthouse: <%= f.file_field :penthouse_layout %>
+</p>
+
+<p></p>
+
+<p>
+  <%= label_tag :captions %><br>
+  Studio: <%= f.text_field :studio_layout_caption %><br>
+  1 Bedroom: <%= f.text_field :one_bedroom_layout_caption %><br>
+  2 Bedroom: <%= f.text_field :two_bedroom_layout_caption %><br>
+  3 Bedroom: <%= f.text_field :three_bedroom_layout_caption %><br>
+  Penthouse: <%= f.text_field :penthouse_layout_caption %>
+</p>
+
+<p></p>
 
 <p>
   <%= f.label :payment_terms %><%= f.text_area :payment_terms %>
 </p>
-	
+
 <p>
   <%= f.label :as_low_as %><%= f.text_field :as_low_as %><br>
   <%= f.radio_button :as_low_as_label, "/month" %>Monthly Installment
   <%= f.radio_button :as_low_as_label, " downpayment" %>Downpayment
 </p>
-	
+
 <p>
-<%= f.label :reservation_fee %><%= f.text_field :reservation_fee %>
+  <%= f.label :reservation_fee %><%= f.text_field :reservation_fee %>
 </p>
 
 <p><%= f.submit 'Save' %></p>

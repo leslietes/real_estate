@@ -4,8 +4,33 @@
   <p id="tagline">Own a unit for as low as <%= number_to_currency(@property.as_low_as, :unit => "P ", :precision => 0) %><%= @property.as_low_as_label %></p>
 <% end %>
 	
-<br/>
+<% if @property.logo? %>
+    <%= image_tag(@property.logo.url(:medium)) %>
+<% end %>
+<% if @property.photo? %>
+    <%= image_tag(@property.photo.url(:medium)) %>
+<% end %>
+<% if @property.location_map? %>
+    <%= image_tag(@property.location_map.url(:medium)) %>
+<% end %>
+<% if @property.studio_layout? %>
+    <%= image_tag(@property.studio_layout.url(:medium)) %>
+<% end %>
+<% if @property.one_bedroom_layout? %>
+    <%= image_tag(@property.one_bedroom_layout.url(:medium))  %>
+<% end %>
+<% if @property.two_bedroom_layout? %>
+    <%= image_tag(@property.two_bedroom_layout.url(:medium)) %>
+<% end %>
+<% if @property.penthouse_layout? %>
+    <%= image_tag(@property.penthouse_layout.url(:medium)) %>
+<% end %>
+			
 		
+<br/>
+
+<%= display_unit_info(@property.all_unit_info) %>
+
 <div class="disclaimer">
   <p>* Denotes lowest available price</p>
 </div>
@@ -16,10 +41,13 @@
   <h3>Payment Terms</h3>
   <%= @property.payment_terms %>
 <% end %>
-		
+
 <br/>
 		
+<h3>Location</h3>
+  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=600x405&sensor=false&zoom=16&markers=#{@property.latitude}%2C#{@property.longitude}" %>
+</div>
+
 <%= render :partial => "#{@partial}" %>
 		
 <br/>
-		
