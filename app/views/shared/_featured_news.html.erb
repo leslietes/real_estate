@@ -1,0 +1,27 @@
+<% if !@featured_articles.empty? %>
+<div class="featured_news">
+	<div class="top"></div>
+	<div class="mid">
+	<h1>News/Events</h1>	
+	<ul>
+		<% @featured_articles.each do |a| %>
+		<li>
+				<%= link_to a.title, article_url(a)  %><br/>
+				<span>
+				<% if a.published_date? %>
+					On <%= format_date(a.published_date) %>
+				<% end %>
+				<% if a.published_at? %> 
+				In <%= a.published_at %>
+				<% end %>
+				</span>
+		</li><hr/>
+		<% end %>
+	</ul>
+	<div class="read_more">
+		<%= link_to 'Read More', articles_url %>
+	</div>
+	</div>
+	<div class="bottom"></div>
+</div>
+<% end %>

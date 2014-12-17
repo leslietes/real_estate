@@ -7,7 +7,7 @@
 <div class="featured">
 	<ul>
 		<% @properties.each do |p| %>
-			<li>
+			<% 8.times do %><li>
 				<% if p.sold_out? %>
 				<div class="soldout"></div>
 				<% end %>
@@ -33,5 +33,5 @@
 						<% end %>
 					</div>	
 		<% end %>
-	</li>
+	</li><% end %>
 </div>

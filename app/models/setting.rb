@@ -24,6 +24,8 @@ class Setting < ActiveRecord::Base
   validates_attachment_content_type :featured5, :content_type => /\Aimage\/.*\Z/
   validates_attachment_content_type :sidebar, :content_type => /\Aimage\/.*\Z/
 
-  
+  def self.unit_types
+    [['Studio','studio'],['1 Bedroom','one_bedroom'],['2 Bedroom', 'two_bedroom'],['3 Bedroom','three_bedroom'],['Loft', 'loft'],['Penthouse','penthouse']]
+  end
 
 end
