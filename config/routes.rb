@@ -20,6 +20,7 @@ RealEstate::Application.routes.draw do
   #   resources :products
   resources :developers
   resources :properties
+  resources :news
 
   # Sample resource route with options:
   #   resources :products do

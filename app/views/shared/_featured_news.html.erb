@@ -6,7 +6,7 @@
 	<ul>
 		<% @featured_articles.each do |a| %>
 		<li>
-				<%= link_to a.title, article_url(a)  %><br/>
+				<%= link_to a.title, news_url(a)  %><br/>
 				<span>
 				<% if a.published_date? %>
 					On <%= format_date(a.published_date) %>
@@ -19,7 +19,7 @@
 		<% end %>
 	</ul>
 	<div class="read_more">
-		<%= link_to 'Read More', articles_url %>
+		<%= link_to 'Read More', news_index_url %>
 	</div>
 	</div>
 	<div class="bottom"></div>

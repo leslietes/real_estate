@@ -1,0 +1,14 @@
+<%# content_for :admin_pages do %>
+<div class="blue">
+<div class="main_content">
+	
+	<h1>New Article</h1>	
+	
+		
+	<%= form_for @news, :html => {:multipart => true} do |f| %>
+	  <%= render :partial => 'form', :locals => {:f => f} %>
+	<% end %>
+	
+</div>
+</div>
+<%# end %>

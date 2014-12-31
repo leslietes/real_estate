@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_filter :retrieve_objects
   
   def retrieve_objects
-    #@featured_articles = Article.featured_articles
+    @featured_articles = News.featured_articles
     # for search box
     @search_location = Location.all.collect{|a| a.area }.sort.insert(0,"")
     @search_price    = PriceRange.show_all.insert(0,"")

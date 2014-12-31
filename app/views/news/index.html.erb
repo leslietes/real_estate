@@ -1,0 +1,43 @@
+<div class="blue">
+	<div class="main_content">
+		<h1>News/Events</h1>
+		
+		<div class="left">
+		<% @news.each do |news|%>
+			<div class="articles">
+				<h2><%= link_to news.title, news_url(news) %></h2>
+				<% if news.teaser? %>
+					<p class="teaser"><%= news.teaser %> <%= link_to '...', news_url(news) %></p>
+				<% end %>
+				<p class="published_on">
+				<% if news.published_date? %>
+				<span>On <%= format_date(news.published_date) %>
+				<% end %>
+				<% if news.published_at? %>
+				 In <%= news.published_at %></span>
+				<% end %>
+				</p>
+				<%# if logged_in? %>
+				<div class="links">
+					<%= link_to 'Edit', edit_news_url(news) %>
+					<%= link_to 'Delete', news_url(news), :method => :delete, :confirm => "Are you sure?" %>
+				</div>
+				<%# end %>
+			</div>	
+		<% end %>
+		
+		<%# if logged_in? %>
+			<div class="links">
+				<%= link_to 'New', new_news_url %>
+			</div>	
+		<%#  end %>
+		</div>
+		
+		<div class="right">
+			<%= render :partial => 'shared/featured_news' %><br/>
+			<%= render :partial => 'shared/search_form' %>
+		</div>
+		
+	
+</div>
+</div></div>
